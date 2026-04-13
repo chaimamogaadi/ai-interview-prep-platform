@@ -1,0 +1,83 @@
+<div class="results-container">
+
+  <div class="results-header">
+    <h1>Interview Results</h1>
+    <a mat-stroked-button routerLink="/dashboard">← Dashboard</a>
+  </div>
+
+  @if (!feedbackGenerated && answers.length > 0) {
+    <mat-card class="generate-card">
+      <mat-card-content>
+        <mat-icon class="ai-icon">psychology</mat-icon>
+        <h2>Ready for AI Feedback?</h2>
+        <p>Our AI will analyze your {{ answers.length }} answers and provide detailed feedback.</p>
+        <button mat-raised-button color="primary" (click)="generateAllFeedback()"
+                [disabled]="loadingFeedback">
+          @if (loadingFeedback) {
+            <mat-spinner diameter="20" style="display:inline-block;margin-right:8px" />
+          }
+          {{ loadingFeedback ? 'AI is analyzing your answers...' : 'Generate AI Feedback' }}
+        </button>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if (feedbackGenerated) {
+    <mat-card class="score-card">
+      <mat-card-content>
+        <div class="big-score" [style.color]="getScoreColor(averageScore)">
+          {{ averageScore }}
+        </div>
+        <div class="score-label">Average Score</div>
+        <mat-progress-bar mode="determinate" [value]="averageScore"
+                          style="margin-top:16px;border-radius:4px" />
+      </mat-card-content>
+    </mat-card>
+
+    @for (feedback of feedbacks; track feedback.id; let i = $index) {
+      <mat-card class="feedback-card">
+        <mat-card-header>
+          <mat-card-title>Question {{ i + 1 }}</mat-card-title>
+          <mat-card-subtitle>{{ feedback.questionContent }}</mat-card-subtitle>
+          <span class="score-badge" [style.background]="getScoreColor(feedback.score)">
+            {{ feedback.score }}/100
+          </span>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="answer-section">
+            <h4>Your Answer</h4>
+            <p class="user-answer">{{ feedback.userAnswer }}</p>
+          </div>
+
+          <div class="feedback-grid">
+            <div class="strengths">
+              <h4>✅ Strengths</h4>
+              <ul>
+                @for (s of feedback.strengths; track s) {
+                  <li>{{ s }}</li>
+                }
+              </ul>
+            </div>
+            <div class="weaknesses">
+              <h4>⚠️ Areas to Improve</h4>
+              <ul>
+                @for (w of feedback.weaknesses; track w) {
+                  <li>{{ w }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          @if (feedback.improvedAnswer) {
+            <div class="improved-answer">
+              <h4>💡 Suggested Better Answer</h4>
+              <p>{{ feedback.improvedAnswer }}</p>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+</div>

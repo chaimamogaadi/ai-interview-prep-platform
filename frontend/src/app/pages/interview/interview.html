@@ -1,0 +1,80 @@
+<div class="interview-container">
+
+  @if (step === 'setup') {
+    <mat-card class="setup-card">
+      <mat-card-header>
+        <mat-card-title>Configure Your Interview</mat-card-title>
+        <mat-card-subtitle>AI will generate personalized questions for you</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Job Role</mat-label>
+          <mat-select [(ngModel)]="jobRole">
+            @for (role of jobRoles; track role) {
+              <mat-option [value]="role">{{ role }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Experience Level</mat-label>
+          <mat-select [(ngModel)]="experienceLevel">
+            @for (level of levels; track level) {
+              <mat-option [value]="level">{{ level }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" class="full-width"
+                [disabled]="!jobRole || !experienceLevel || loadingInterview"
+                (click)="startInterview()">
+          @if (loadingInterview) {
+            <mat-spinner diameter="20" style="display:inline-block;margin-right:8px" />
+          }
+          {{ loadingInterview ? 'Generating questions with AI...' : 'Start Interview' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }
+
+  @if (step === 'interview' && interview) {
+    <div class="interview-header">
+      <h2>{{ interview.jobRole }} — {{ interview.experienceLevel }}</h2>
+      <span class="progress-text">
+        Question {{ currentQuestionIndex + 1 }} of {{ interview.questions.length }}
+      </span>
+    </div>
+
+    <mat-progress-bar mode="determinate" [value]="progress"
+                      style="margin-bottom:24px;border-radius:4px" />
+
+    @if (currentQuestion) {
+      <mat-card class="question-card">
+        <mat-card-content>
+          <div class="question-badge">Question {{ currentQuestionIndex + 1 }}</div>
+          <p class="question-text">{{ currentQuestion.content }}</p>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Your Answer</mat-label>
+            <textarea matInput [(ngModel)]="currentAnswer" rows="8"
+                      placeholder="Type your answer here. Be thorough and use examples.">
+            </textarea>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="full-width"
+                  [disabled]="!currentAnswer.trim() || submittingAnswer"
+                  (click)="submitCurrentAnswer()">
+            @if (submittingAnswer) {
+              <mat-spinner diameter="20" style="display:inline-block;margin-right:8px" />
+            }
+            {{ submittingAnswer ? 'Submitting...' : (isLastQuestion ? 'Finish & Get Feedback' : 'Next Question →') }}
+          </button>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+
+</div>

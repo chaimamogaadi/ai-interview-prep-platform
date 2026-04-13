@@ -1,0 +1,92 @@
+.results-container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  h1 { margin: 0; }
+}
+
+.generate-card {
+  text-align: center;
+  padding: 32px;
+  margin-bottom: 24px;
+  .ai-icon { font-size: 64px; width: 64px; height: 64px; color: #3f51b5; }
+  h2 { margin: 16px 0 8px; }
+}
+
+.score-card {
+  text-align: center;
+  padding: 32px;
+  margin-bottom: 32px;
+  .big-score { font-size: 80px; font-weight: bold; }
+  .score-label { color: #666; font-size: 18px; }
+}
+
+.feedback-card {
+  margin-bottom: 24px;
+  padding: 8px;
+  position: relative;
+  mat-card-header { padding-right: 90px; }
+}
+
+.score-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.answer-section {
+  background: #f8f9fa;
+  border-left: 4px solid #3f51b5;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  h4 { margin: 0 0 8px; color: #3f51b5; }
+}
+
+.user-answer { white-space: pre-wrap; margin: 0; color: #333; }
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.strengths {
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 16px;
+  h4 { color: #2e7d32; margin: 0 0 8px; }
+  ul { margin: 0; padding-left: 20px; }
+  li { color: #1b5e20; margin-bottom: 4px; }
+}
+
+.weaknesses {
+  background: #fff3e0;
+  border-radius: 8px;
+  padding: 16px;
+  h4 { color: #e65100; margin: 0 0 8px; }
+  ul { margin: 0; padding-left: 20px; }
+  li { color: #bf360c; margin-bottom: 4px; }
+}
+
+.improved-answer {
+  background: #e3f2fd;
+  border-radius: 8px;
+  padding: 16px;
+  h4 { color: #1565c0; margin: 0 0 8px; }
+  p { color: #0d47a1; margin: 0; white-space: pre-wrap; }
+}
