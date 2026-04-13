@@ -45,21 +45,22 @@ This platform helps developers prepare for technical interviews by simulating re
 
 ## 🖥️ Screenshots
 
+## 🖥️ Screenshots
+
 | Login | Register | Dashboard |
 |-------|----------|-----------|
-| ![login](docs/screenshots/login.png) | ![register](docs/screenshots/register.png) | ![dashboard](docs/screenshots/dashboard.png) |
+| ![login](docs/screenshots/login.PNG) | ![register](docs/screenshots/register.PNG) | ![dashboard](docs/screenshots/dashboard.PNG) |
 
 | Interview | Question | Feedback |
 |-----------|----------|----------|
-| ![interview](docs/screenshots/interview.png) | ![question](docs/screenshots/question.png) | ![feedback](docs/screenshots/feedback1.png) |
-
+| ![interview](docs/screenshots/interview.PNG) | ![question](docs/screenshots/question.PNG) | ![feedback](docs/screenshots/feedback1.PNG) |
 ---
 
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────┐         ┌──────────────────┐         ┌─────────────┐
-│  Angular 18     │  HTTP   │  Spring Boot 3.2  │   JPA   │   MySQL     │
+│  Angular 18     │  HTTP   │  Spring Boot 3.5  │   JPA   │   MySQL     │
 │  (Port 4200)    │◄───────►│  (Port 8080)      │◄───────►│  (Port 3306)│
 │                 │   JWT   │                   │         │             │
 └─────────────────┘         └────────┬─────────┘         └─────────────┘
@@ -95,7 +96,7 @@ users ──< interviews ──< questions
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Java 17** + **Spring Boot 3.2**
+- **Java 17** + **Spring Boot 3.5**
 - **Spring Security** — JWT-based stateless auth
 - **Spring Data JPA** + **Hibernate** — ORM
 - **MySQL** — Relational database (via XAMPP)
