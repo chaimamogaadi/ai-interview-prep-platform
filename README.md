@@ -10,7 +10,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-Local%20AI-black?style=for-the-badge)](https://ollama.ai)
 [![JWT](https://img.shields.io/badge/JWT-Auth-orange?style=for-the-badge&logo=jsonwebtokens)](https://jwt.io)
 
-[Features](#-features) • [Demo](#-screenshots) • [Architecture](#-architecture) • [Getting Started](#-getting-started) • [API](#-api-documentation)
+[Features](#-features) • [Screenshots](#-screenshots) • [Architecture](#-architecture) • [Getting Started](#-getting-started) • [API](#-api-documentation)
 
 </div>
 
@@ -45,10 +45,14 @@ This platform helps developers prepare for technical interviews by simulating re
 
 ## 🖥️ Screenshots
 
-| Login | Interview | Feedback |
-|-------|-----------|----------|
-| ![login](C:\ai-interview-prep-platform\docs\screenshots\login.png) | ![interview](C:\ai-interview-prep-platform\docs\screenshotsv\interview.png) | ![feedback](C:\ai-interview-prep-platform\docs\screenshots\feedback1.png) |
-(C:\ai-interview-prep-platform\docs\screenshots\feedback2.png)| ![register](C:\ai-interview-prep-platform\docs\screenshots\register.png) | ![question](C:\ai-interview-prep-platform\docs\screenshots\question.png) | ![dashboard](C:\ai-interview-prep-platform\docs\screenshots\dashboard.png) |
+| Login | Register | Dashboard |
+|-------|----------|-----------|
+| ![login](docs/screenshots/login.png) | ![register](docs/screenshots/register.png) | ![dashboard](docs/screenshots/dashboard.png) |
+
+| Interview | Question | Feedback |
+|-----------|----------|----------|
+| ![interview](docs/screenshots/interview.png) | ![question](docs/screenshots/question.png) | ![feedback](docs/screenshots/feedback1.png) |
+
 ---
 
 ## 🏗️ Architecture
@@ -91,7 +95,7 @@ users ──< interviews ──< questions
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Java 17** + **Spring Boot 3.5**
+- **Java 17** + **Spring Boot 3.2**
 - **Spring Security** — JWT-based stateless auth
 - **Spring Data JPA** + **Hibernate** — ORM
 - **MySQL** — Relational database (via XAMPP)
@@ -119,7 +123,7 @@ users ──< interviews ──< questions
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-interview-prep-platform.git
+git clone https://github.com/chaimamogaadi/ai-interview-prep-platform.git
 cd ai-interview-prep-platform
 ```
 
@@ -245,13 +249,6 @@ ollama.url=http://localhost:11434/api/generate
 ollama.model=tinyllama
 ```
 
-### Environment Variables (optional for production)
-```bash
-DB_USERNAME=root
-DB_PASSWORD=yourpassword
-JWT_SECRET=yourjwtsecret
-```
-
 ---
 
 ## 🤝 Contributing
@@ -268,15 +265,15 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+## 👩‍💻 Author
 
-**Your Name**
-- LinkedIn: linkedin.com/in/chaima-mogaadi
-- GitHub: @chaimamogaadi https://github.com/chaimamogaadi
+**Chaima Mogaadi**
+- LinkedIn: [linkedin.com/in/chaima-mogaadi](https://linkedin.com/in/chaima-mogaadi)
+- GitHub: [@chaimamogaadi](https://github.com/chaimamogaadi)
 - Email: chaima.mogaaadi@gmail.com
 
 ---
